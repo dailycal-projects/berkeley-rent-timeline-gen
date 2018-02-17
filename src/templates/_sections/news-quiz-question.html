@@ -1,0 +1,57 @@
+<div class="btn-q{{ section.questionNumber }} quiz-question">
+    <figure class="btn-q{{ section.questionNumber }} no-gutters-phone">
+        <h2 class='question-number'>{{ section.questionNumber }}. </h2>
+        <img class="btn-q{{ section.questionNumber }} question-image" src="{{ section.questionImage }}">
+    </figure>
+    <h2>{{ section.question }}</h2>
+    <div class="btn-q{{ section.questionNumber }} button-group content-fit">
+        {% if 'option1' in section.correct %}
+        <a target="blank" id="btn-q{{ section.questionNumber }}-1" class="btn-q{{ section.questionNumber }} correct btn full-width left-align">
+            {{ section.option1 }}
+        </a>
+        {% elif section.option1 != 'NULL' %}
+        <a target="blank" id="btn-q{{ section.questionNumber }}-1" class="btn-q{{ section.questionNumber }} wrong btn full-width left-align">
+            {{ section.option1 }}
+        </a>
+        {% endif %}
+        {% if 'option2' in section.correct %}
+        <a target="blank" id="btn-q{{ section.questionNumber }}-2" class="btn-q{{ section.questionNumber }} correct btn full-width left-align">
+            {{ section.option2 }}
+        </a>
+        {% elif section.option2 != 'NULL' %}
+        <a target="blank" id="btn-q{{ section.questionNumber }}-2" class="btn-q{{ section.questionNumber }} wrong btn full-width left-align">
+            {{ section.option2 }}
+        </a>
+        {% endif %}
+        {% if 'option3' in section.correct %}
+        <a target="blank" id="btn-q{{ section.questionNumber }}-3" class="btn-q{{ section.questionNumber }} correct btn full-width left-align">
+            {{ section.option3 }}
+        </a>
+        {% elif section.option3 != 'NULL' %}
+        <a target="blank" id="btn-q{{ section.questionNumber }}-3" class="btn-q{{ section.questionNumber }} wrong btn full-width left-align">
+            {{ section.option3 }}
+        </a>
+        {% endif %}
+        {% if 'option4' in section.correct %}
+        <a target="blank" id="btn-q{{ section.questionNumber }}-4" class="btn-q{{ section.questionNumber }} correct btn full-width left-align">
+            {{ section.option4 }}
+        </a>
+        {% elif section.option4 != 'NULL' %}
+        <a target="blank" id="btn-q{{ section.questionNumber }}-4" class="btn-q{{ section.questionNumber }} wrong btn full-width left-align">
+            {{ section.option4 }}
+        </a>
+        {% endif %}
+    </div>
+</div>
+<br>
+<h2 id="q{{ section.questionNumber }}-exp-correct" style="display:none">
+    Correct!
+</h2>
+<h2 id="q{{ section.questionNumber }}-exp-wrong" style="display:none">
+    Not quite!
+</h2>
+<div id="q{{ section.questionNumber }}-exp" style="display:none">
+    {{ section.explanation | markdown }}
+
+    <p class='read-more'> Read more: <a class='read-more-link' href="{{ section.articleLink }}">{{ section.articleTitle }}</a> </p>
+</div>
