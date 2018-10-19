@@ -1,6 +1,7 @@
 .quiz-question {
     // background-color: #e6e6e6;
     // @include border-radius(5px);
+    padding-top: 15x;
 }
 
 .question-image {
@@ -67,4 +68,17 @@
       border: 1px solid $button;
       box-shadow: none;
     }*/
+}
+
+h2 {
+    line-height: 1.3em;
+    @media screen and (max-width: $width-small) {
+        font-size: 27px;
+    }
+}
+
+p {
+    @media screen and (max-width: $width-small) {
+        line-height: 1.4em;
+    }
 }

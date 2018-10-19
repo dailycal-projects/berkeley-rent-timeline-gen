@@ -1,7 +1,8 @@
 <div class="btn-q{{ section.questionNumber }} quiz-question">
+    <h2 class='question-number'>{{ section.questionNumber }}. </h2>
     <figure class="btn-q{{ section.questionNumber }} no-gutters-phone">
-        <h2 class='question-number'>{{ section.questionNumber }}. </h2>
         <img class="btn-q{{ section.questionNumber }} question-image" src="{{ section.questionImage }}">
+        <figcaption class="figcaption"> {{ section.imageCredit }} </figcaption>
     </figure>
     <h2>{{ section.question }}</h2>
     <div class="btn-q{{ section.questionNumber }} button-group content-fit">
@@ -44,14 +45,20 @@
     </div>
 </div>
 <br>
-<h2 id="q{{ section.questionNumber }}-exp-correct" style="display:none">
-    Correct!
-</h2>
-<h2 id="q{{ section.questionNumber }}-exp-wrong" style="display:none">
-    Not quite!
-</h2>
-<div id="q{{ section.questionNumber }}-exp" style="display:none">
-    {{ section.explanation | markdown }}
+<div style="background-color:#7aaaf317;max-width:600px;margin:0px auto 30px auto">
+    <h2 id="q{{ section.questionNumber }}-exp-correct" style="display:none;padding:25px 15px 0px 15px">
+        Correct!
+    </h2>
+    <h2 id="q{{ section.questionNumber }}-exp-wrong" style="display:none;padding:25px 15px 0px 15px">
+        Not quite!
+    </h2>
+    <div id="q{{ section.questionNumber }}-exp" style="display:none;padding:0px 15px 0.5px 15px">
+        {{ section.explanation | markdown }}
 
-    <p class='read-more'> Read more: <a class='read-more-link' href="{{ section.articleLink }}">{{ section.articleTitle }}</a> </p>
+        {% if section.articleTitle %}
+        <p class='read-more'> Read more: <a class='read-more-link' href="{{ section.articleLink }}">{{ section.articleTitle }}</a> </p>
+        {% else %}
+        <p class='read-more blank'></p>
+        {% endif %}
+    </div>
 </div>

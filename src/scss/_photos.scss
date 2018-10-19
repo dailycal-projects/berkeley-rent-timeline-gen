@@ -7,6 +7,7 @@
 //Photos
 figure {
   margin: 10px auto;
+  display: table;
 
   img {
     width: 100%;
@@ -34,7 +35,7 @@ figcaption {
   font-size: .875em;
   line-height: 1.2em;
   padding: 5px;
-  text-align: left;
+  text-align: right;
 }
 
 //Photo sets
