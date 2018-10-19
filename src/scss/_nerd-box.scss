@@ -10,3 +10,9 @@
 		margin-bottom: 0;
 	}
 }
+
+@media screen and (max-width: $width-bootstrap-small) {	
+    .nerd-box {
+    	margin: 0 auto 50px auto;
+    }
+}
