@@ -163,7 +163,7 @@ var render = function() {
   if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
     
-    if (scrollTop > (5 * window.innerHeight)) {
+    if (scrollTop > (0.1 * window.innerHeight)) {
         // window.alert(scrollTop);
         d3.select("svg")
           .style("display", "block");

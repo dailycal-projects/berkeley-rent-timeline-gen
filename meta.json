@@ -6,12 +6,12 @@
   "dateline": "10/19/18 12:00 AM PST",
   "share": {
     "fbook": {
-      "card_title": "Berkeley news quiz, week of Oct. 14",
-      "card_description": "Did you follow the news in Berkeley this week?"
+      "card_title": "Berkeley Rent and Legislation",
+      "card_description": ""
     },
     "twitter": {
-      "card_title": "Berkeley news quiz, week of Oct. 14",
-      "share_tweet": "Did you follow the news in Berkeley this week?"
+      "card_title": "Berkeley Rent and Legislation",
+      "share_tweet": ""
     },
     "image": {
       "url": "http://www.dailycal.org/assets/uploads/2018/04/librarians_karenchow_staff.jpg",
@@ -20,6 +20,6 @@
       "width": "1200",
       "height": "630"
     },
-    "keywords": "Daily Cal, news, quiz, Jerry Brown, Phi Gamma Delta, Berkeley City Council, Human Rights Center, Berkeley Lab"
+    "keywords": "Daily Cal, rent, legislation, housing"
   }
 }
