@@ -104,7 +104,7 @@ d3.csv("../data/data.csv", function(d) {
     });
 
   var setDimensions = function() {
-    isMobile = window.innerWidth < 850 ? true : false;
+    var isMobile = window.innerWidth < 850 ? true : false;
 
     WIDTH = isMobile ? window.innerWidth : 900;
     HEIGHT = isMobile ? 500 : 600;
@@ -164,11 +164,10 @@ var render = function() {
     scrollTop = newScrollTop
     
     if (scrollTop > (0.1 * window.innerHeight)) {
-        // window.alert(scrollTop);
         d3.select("svg")
           .style("display", "block");
     } else {
-      d3.select("svg")
+        d3.select("svg")
           .style("display", "none");
     }
 
