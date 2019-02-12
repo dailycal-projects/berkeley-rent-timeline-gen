@@ -15,7 +15,6 @@ if (window.innerWidth < 380) {
     HEIGHT = 600;
 }
 
-
 var margin = {top: 20, right: 20, bottom: 25, left: 50};
 
 /* selection.node() -- returns the first (non-null) element in this selection. */
@@ -163,11 +162,11 @@ var render = function() {
   if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
     
-    if (scrollTop > (0.1 * window.innerHeight)) {
-        d3.select("svg")
+    if (scrollTop > (1 * window.innerHeight)) {
+        d3.select("#sticky")
           .style("display", "block");
     } else {
-        d3.select("svg")
+        d3.select("#sticky")
           .style("display", "none");
     }
 

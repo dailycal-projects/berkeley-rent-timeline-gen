@@ -1,18 +1,14 @@
-svg {
-  display: none;
-  background-color: #fffff0;
-}
-
 #container {
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
-  z-index: 100;
   margin: 0 auto;
 }
 
 #sticky { 
-  position: absolute; 
+  background-color: #fffff0;
+  display: none;
+  position: fixed; 
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -26,10 +22,11 @@ svg {
   text-align: center;
   position: relative;
   margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top: 20vh;
   padding-bottom: 20vh;
+  z-index: 100;
 }
 
 #last {
@@ -45,15 +42,15 @@ svg {
 .panel .details {
     display: inline-block;
     text-align: left;
-    background-color: #f5f2ee;
-    margin-left: 50px;
-    margin-right: 50px;
-    border-radius:3px;
+    background-color: #ffffff;
+    margin-left: 35px;
+    margin-right: 35px;
+    border-radius: 3px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    box-shadow:0 0 1px 2px #cfc2ae;
+    box-shadow:0 0 1px 2px #ffffd7;
     font-family: Georgia,Times,Times New Roman,serif;
     font-size: 17px;
 }
@@ -67,16 +64,16 @@ svg {
 
 /* GRAPH things */
 
-.axis line{
+.axis line {
   stroke: #0f1626;
 }
 
-.axis path{
+.axis path {
   stroke: #0f1626;
 }
 
-.axis text{
-  fill: #0f1626;
+.axis text {
+  fill: #0f1626; 
 } 
 
 .overlay {
