@@ -14,6 +14,7 @@
   transform: translate(-50%, -50%);
   max-width: 900px;
   z-index: 50;
+  pointer-events: none;
 }
 
 /* PANEL things */
@@ -22,11 +23,15 @@
   text-align: center;
   position: relative;
   margin: 0 auto;
-  padding-left: 15px;
+  padding-left: 30px;
   padding-right: 15px;
-  padding-top: 20vh;
-  padding-bottom: 20vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
   z-index: 100;
+}
+
+#first {
+  padding-top: 20vh;
 }
 
 #last {
@@ -36,7 +41,7 @@
 .panel .year {
     text-align: center;
     font-size: 20px;
-    padding-top: 20vh;
+    padding-top: 5vh;
 }
 
 .panel .details {

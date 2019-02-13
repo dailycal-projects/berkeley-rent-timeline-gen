@@ -162,7 +162,7 @@ var render = function() {
   if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
     
-    if (scrollTop > (1 * window.innerHeight)) {
+    if (scrollTop > (3 * window.innerHeight)) {
         d3.select("#sticky")
           .style("display", "block");
     } else {
