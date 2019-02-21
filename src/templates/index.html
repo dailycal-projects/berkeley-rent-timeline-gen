@@ -6,6 +6,22 @@
 
 {%block header%}
 <div id="container" style="height: 100vh">
+
+<div id="global-header">
+  <div id="global-branding">
+    <div class="navbar-dc-logo">
+     <a href="http://www.dailycal.org/" title="The Daily Californian" target="_top">
+       <img class="navbar-brand" src="http://projects.dailycal.org/images/masthead.png">
+     </a>
+    </div>
+  </div>
+
+  <ul class="nav navbar-nav navbar-right">
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ META.url | urlencode }}"><i class="fa fa-facebook"></i></a></li>
+  <li><a href="https://twitter.com/intent/tweet?url={{ META.url | urlencode }}&amp;via=dailycal&amp;text={{META.share.twitter.share_tweet | urlencode}}"><i class="fa fa-twitter"></i></a></li>
+  </ul>
+</div>
+
 <header class="center">
   <div class ="panel" id="first">
     <p class="category">
@@ -67,7 +83,7 @@
       <div class="panel">
         <p class="year"> <b> 1979 </b> $212 </p>
       </div>
-      <div class="panel">
+      <div class="panel" id="year">
         <p class="year"> <b> 1980 </b> $223 </p>
         <h4> JUNE </h4>
         <p class="details"> Berkeley voters pass the Rent Stabilization and Eviction for Good Cause Ordinance (now <a href="https://www.codepublishing.com/CA/Berkeley/?Berkeley13/Berkeley1376/Berkeley1376.html&?f" target="_blank" style="color:#1960a8"> Berkeley Municipal Code Chapter 13.76</a>), the basic framework of Berkeley rent control. A base rent is established as the lawful rent. The first Berkeley Rent Stabilization Board sets annual across-the-board rent increases, called the <a href="https://www.cityofberkeley.info/rent/AGA.aspx" target="_blank" style="color:#1960a8"> Annual General Adjustment (AGA)</a>, to account for increases in operating costs. </p>
@@ -110,7 +126,7 @@
       <div class="panel">
         <p class="year"> <b> 1990 </b> $344 </p>
       </div>
-      <div class="panel">
+      <div class="panel" id="year">
         <p class="year"> <b> 1991 </b> $361 </p>
         <h4> APRIL </h4>
         <p class="details"> The Rent Board passes <a href="https://www.cityofberkeley.info/Rent_Stabilization_Board/Home/Regulation_1262.aspx" target="_blank" style="color:#1960a8"> Regulation 1262</a>, by which landlords can request that operating income be changed due to unusual circumstances in that year, meaning that they can petition for rent increases.</p>
@@ -127,7 +143,7 @@
         <p class="year"> <b> 1994 </b> $545 </p>
         <p class="details"> Major rent increases loosen up the rent control system. Berkeley joins the housing crisis emerging in the Bay Area. </p>
       </div>
-      <div class="panel">
+      <div class="panel" id="year">
         <p class="year"> <b> 1995 </b> $533 </p>
         <h4> JUNE </h4>
         <p class="details"> The <a href="https://www.cityofberkeley.info/Rent_Stabilization_Board/Home/California_Civil_Code__Sec_1954_50-1954_535_(Costa-Hawkins).aspx" target="_target" style="color:#1960a8">Costa Hawkins Rental Housing Act</a> prevents rent control from covering any property built after the law passed and mandates “vacancy decontrol”, which allows landlords to raise rents to market rate after a tenant moves out of a rent-controlled unit. It is essentially a statewide-rent control restriction. </p>
@@ -198,29 +214,43 @@
       <div class="panel">
         <p class="year"> <b> 2017 </b> $1675 </p>
       </div>
-      <div class="panel">
+      <div class="panel" id="year">
         <p class="year"> <b> 2018 </b> </p>
         <h4> NOVEMBER </h4>
         <p class="details"> Proposition 10 fails to pass; Costa Hawkins is not repealed. 
         Local <a href="https://www.cityofberkeley.info/uploadedFiles/Clerk/Elections/Rent%20Ordinance%20-%20All_Ballot%20Question%20and%20Full%20Text.pdf" target="_blank" style="color:#1960a8"> Measure Q</a> passes, but because Proposition 10 fails, it does not go entirely into effect. </p>
       </div>
-    </div>          
-    <div class="ending">
+    </div>   
+    <div class="ending">        
       <div class="panel">
         <p id="subtitle"> The data indicates that median rent has increased since 1978. </p>
         <p id="details"> While this graph does not take inflation into consideration, Berkeley rent has, in general, increased at a faster rate than the Bay Area Consumer Price Index, and <a href="https://www.bls.gov/cpi/" target="_blank" style="color:#1960a8"> CPI</a> is an estimator for inflation. </p>
         <p id="details"> The legislation passed through the years appears to have done little to counter or even minimize that, which is especially apparent in the years since Costa Hawkins and reinforced by last November’s (2018) results, despite the present growing housing and housing affordability crisis. </p>
       </div>
     </div>
-    <!-- <div class="nerd-box">
-      <h4>About this story</h4>
-      <p> The data was collected from City of Berkeley <a href="https://www.cityofberkeley.info/rent/reports/" target="_blank" style="color:#1960a8">economic data and historical reports</a>. The graph only goes up to 2017 and does not take inflation into consideration. </p>
-      <br>
-      <p> This project is open-source on <a href="https://github.com/dailycal-projects/berkeley-rent-timeline" target="_blank" style="color:#1960a8">Github</a>. </p>
-      <br>
-      <h4>Support us</h4>
-      <p>We're a nonprofit, student-run newsroom. Please consider <a href="https://donate.dailycal.org/" target="_blank" style="color:#1960a8">donating</a> to support our coverage.</p>
-    </div> -->
+    <div class="panel" id="last">
+      <div class="nerd-box">
+        <h4>About this story</h4>
+        <p> The data was collected from City of Berkeley <a href="https://www.cityofberkeley.info/rent/reports/" target="_blank" style="color:#1960a8">economic data and historical reports</a>. The graph only goes up to 2017 and does not take inflation into consideration. </p>
+        <br>
+        <p> This project is open-source on <a href="https://github.com/dailycal-projects/berkeley-rent-timeline" target="_blank" style="color:#1960a8">Github</a>. </p>
+        <br>
+        <h4>Support us</h4>
+        <p>We're a nonprofit, student-run newsroom. Please consider <a href="https://donate.dailycal.org/" target="_blank" style="color:#1960a8">donating</a> to support our coverage.</p>
+      </div>
+    </div>
+
+    <!-- <div class="panel"> -->
+           <div id="global-footer">
+                <p class="footer-text">Questions, comments or corrections? Email <a href="mailto:projects@dailycal.org">projects@dailycal.org</a>.</p>
+
+                <p class="footer-text">Interested in more projects? Check out <a href="http://projects.dailycal.org">our website</a>.</p>
+
+                <p class="footer-text">Support innovative, independent student journalism. <a href="https://donate.dailycal.org/" target="_blank">Donate today</a>.</p>
+
+                <p class="footer-text">Copyright © 2019 The Daily Californian, The Independent Berkeley Student Publishing Co., Inc.</p>
+           </div>
+       <!-- </div> -->
   </div>
 
 {%endblock%}

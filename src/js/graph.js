@@ -23,7 +23,7 @@ var container = d3.select('#container');
 var content = d3.select('#content');
     
 /* .getBoundingClientRect() -- returns the size of an element and its position relative to the viewport. */
-var SCROLL_LENGTH = content.node().getBoundingClientRect().height - HEIGHT;
+var SCROLL_LENGTH = content.node().getBoundingClientRect().height;
 
 var svg = d3.select("#sticky").append("svg")
     .attr('width', WIDTH)
@@ -88,7 +88,7 @@ d3.csv("../data/data.csv", function(d) {
       });
 
   var pathScale = d3.scaleLinear()
-    .domain([6 * HEIGHT, SCROLL_LENGTH - HEIGHT])
+    .domain([2 * HEIGHT, SCROLL_LENGTH])
     .range([0, path.node().getTotalLength()])
     .clamp(true);  
 
@@ -108,8 +108,8 @@ d3.csv("../data/data.csv", function(d) {
     WIDTH = isMobile ? window.innerWidth : 900;
     HEIGHT = isMobile ? 500 : 600;
     
-    SCROLL_LENGTH = content.node().getBoundingClientRect().height - HEIGHT;
-    console.log(SCROLL_LENGTH);
+    SCROLL_LENGTH = content.node().getBoundingClientRect().height;
+    // console.log(SCROLL_LENGTH);
 
     svg
       .attr('width', WIDTH)
@@ -139,7 +139,7 @@ d3.csv("../data/data.csv", function(d) {
       .text("Median Rent (in Dollars)");
 
     pathScale
-      .domain([6 * HEIGHT, SCROLL_LENGTH - HEIGHT])
+      .domain([2 * HEIGHT, SCROLL_LENGTH])
       .range([0, path.node().getTotalLength()]);
 
     path
@@ -162,7 +162,7 @@ var render = function() {
   if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
     
-    if (scrollTop > (3 * window.innerHeight)) {
+    if (scrollTop > window.innerHeight) {
         d3.select("#sticky")
           .style("display", "block");
     } else {

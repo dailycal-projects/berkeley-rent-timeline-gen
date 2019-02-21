@@ -39,7 +39,7 @@
     </head>
     <body>
         {%block nav%}
-        <!-- <nav title="navigation">
+        <!-- <div class="panel">
             <div id="global-header">
                 <div id="global-branding">
                   <div class="navbar-dc-logo">
@@ -53,9 +53,8 @@
                 <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ META.url | urlencode }}"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="https://twitter.com/intent/tweet?url={{ META.url | urlencode }}&amp;via=dailycal&amp;text={{META.share.twitter.share_tweet | urlencode}}"><i class="fa fa-twitter"></i></a></li>
                 </ul>
-
             </div>
-         </nav> -->
+          </div> -->
         {%endblock%}
 
         {%block header%}{%endblock%}
@@ -64,7 +63,7 @@
      
 
          {%block footer%}
-         <!-- <footer>
+       <!--  <div class="panel">
            <div id="global-footer">
                 <p class="footer-text">Questions, comments or corrections? Email <a href="mailto:projects@dailycal.org">projects@dailycal.org</a>.</p>
 
@@ -74,7 +73,7 @@
 
                 <p class="footer-text">Copyright © 2019 The Daily Californian, The Independent Berkeley Student Publishing Co., Inc.</p>
            </div>
-         </footer> -->
+       </div> -->
          {%endblock%}
 
          <script type="text/javascript">window.tweetText = "{{META.share.twitter.share_tweet}}";</script>

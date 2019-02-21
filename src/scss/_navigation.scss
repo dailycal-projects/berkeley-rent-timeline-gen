@@ -2,19 +2,21 @@
   @include clearfix;
   background: $dc-dark-blue;
   height: 50px;
+  width: 100vw;
+  margin: 0 auto;
 
   #global-header, ul {
     @include clearfix;
   }
 
   img.navbar-brand {
-    margin-left: 1em;
+    margin-left: 5em;
     height: 43px;
     margin-top: 4px; 
   }
 
   a {
-    color: $white;
+    color: #fffff0;
 
       &:hover, &:focus{
         text-decoration: none;
@@ -28,8 +30,7 @@
 
   .navbar-right {
     float: right;
-    
-    margin-right: 1em;
+    margin-right: 5em;
 
     li > a:hover {
       background: $dc-dark-blue;
