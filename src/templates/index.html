@@ -23,12 +23,13 @@
 </div>
 
 <header class="center">
-  <div class ="panel" id="first">
+  <div class ="panel" id="top">
     <p class="category">
         <a href="{{ARCHIE.category_link}}"" target="_blank">HOUSING ISSUE 2019</a>
     </p>
     <h1>A Comprehensive Timeline of Rent Prices and Legislation, From 1978 to Today</h1>
-    <p class="subhead">The x- and y-axes of this graph denote years and median rent prices, respectively.</p>
+    <p class="subhead"> The x- and y-axes of this graph denote years and median rent prices, respectively. </p>
+   <!--  <p class="subhead"> Especially in more recent years, it is apparent that median rent has been increasing, with little legislation passed to counter the growth. </p> -->
     <div class="info">
         <p>
             By <span class="byline"><a href="http://www.dailycal.org/author/pkapshikar/">Purva Kapshikar</a></span> <br /> <span class="timestamp"> <time datetime="2019-03-03T00:00-0700">March 3, 2019</time></span>
@@ -45,10 +46,18 @@
 
 {%block content%}
 
-    <div id="sticky"></div>
+    <div id="sticky">
+    </div>
     <svg id="graph"> </svg>
     <div id="content">
       <div class="panel" id="first">
+        <p class="details">Rent prices accompany years with major legislation, <i> Daily Cal </i> clippings, or 5-year intervals. Click on a clipping to read the original paper in the <a href="http://newsprint.dailycal.org/" target="_blank" style="color:#1960a8"> <i> Daily Cal </i> archives</a>. </p>
+      </div>
+      <div class="panel">
+          <img src="images/berkeley.jpg" alt="City of Berkeley" width="85%">
+          <p id="caption"> Amanda Ramirez/File </p>
+      </div>
+      <div class="panel">
         <p class="details"> During World War II, rent controls, imposed by the federal government, are applied in Berkeley for the first time. They expire in August 1951, after a resolution stating that rental shortages no longer exist. </p>
       </div>
       <div class="panel">
@@ -80,9 +89,9 @@
         <h4> NOVEMBER </h4>
         <p class="details"> Berkeley voters pass the Renter Property Tax Relief Ordinance, which temporarily reduces rents to provide renters a property tax rebate. The ordinance is “self-enforcing”, meaning that tenants are expected to enforce it if it is violated by a landlord. This leads to widespread non-compliance. </p>
       </div>
-      <div class="panel">
+      <!-- <div class="panel">
         <p class="year"> <b> 1979 </b> $212 </p>
-      </div>
+      </div> -->
       <div class="panel" id="year">
         <p class="year"> <b> 1980 </b> $223 </p>
         <h4> JUNE </h4>
@@ -92,37 +101,49 @@
         <p class="details"> Berkeley joins Santa Monica as the only California city with strong rent control laws that kept rents under permanent control. (They are later joined by Cotati, Palm Springs, East Palo Alto and West Hollywood.) </p>
       </div>
       <div class="panel">
+        <a href="http://newsprint.dailycal.org/issues/1981/01/05/#1" target="_blank">
+          <img class="article" src="images/jan51981.jpg" alt="Daily Cal from Jan 5, 1981" width="45%">
+        </a>
+        <p id="caption"> Daily Cal Archives/File </p>
+      </div>
+      <div class="panel">
         <p class="year"> <b> 1981 </b> $234 </p>
         <h4> JANUARY </h4>
         <p class="details"> The first Annual General Adjustment takes effect. </p>
+      </div>
+      <div class="panel">
+        <a href="http://newsprint.dailycal.org/issues/1981/01/09/#1" target="_blank">
+          <img class="article" src="images/jan91981.jpg" alt="Daily Cal from Jan 9, 1981" width="85%">
+        </a>
+        <p id="caption"> Daily Cal Archives/File </p>
       </div>
       <div class="panel">
         <p class="year"> <b> 1982 </b> $255 </p>
         <h4> NOVEMBER </h4>
         <p class="details"> An initiative Charter amendment that replaces the appointed Rent Board with an elected <a href="https://www.cityofberkeley.info/Rent_Stabilization_Board/Department_Master_and_Collections/TEMP_-_About_Us_and_Contact_Us/Rent_Board_-_About_Us.aspx" target="_blank" style="color:#1960a8"> Rent Board</a> passes. </p>
       </div>
-      <div class="panel">
+      <!-- <div class="panel">
         <p class="year"> <b> 1983 </b> $267 </p>
       </div>
       <div class="panel">
         <p class="year"> <b> 1984 </b> $267 </p>
-      </div>
+      </div> -->
       <div class="panel">
         <p class="year"> <b> 1985 </b> $272 </p>
       </div>
-      <div class="panel">
+      <!-- <div class="panel">
         <p class="year"> <b> 1986 </b> $283 </p>
       </div>
       <div class="panel">
         <p class="year"> <b> 1987 </b> $293 </p>
-        <!-- <h4> The <span style="color:#6199e2">blue</span> line denotes median rent, including AGA, and the <span style="color:#e2aa61">orange</span> line denotes median rent after vacancy decontrol.</h4> -->
+        <h4> The <span style="color:#6199e2">blue</span> line denotes median rent, including AGA, and the <span style="color:#e2aa61">orange</span> line denotes median rent after vacancy decontrol.</h4>
       </div>
       <div class="panel">
         <p class="year"> <b> 1988 </b> $318 </p>
       </div>
       <div class="panel">
         <p class="year"> <b> 1989 </b> $328 </p>
-      </div>
+      </div> -->
       <div class="panel">
         <p class="year"> <b> 1990 </b> $344 </p>
       </div>
@@ -134,14 +155,26 @@
         <p class="details"> The Rent Board passes <a href="https://www.cityofberkeley.info/Rent_Stabilization_Board/Home/Regulation_Chapter_11_part_3.aspx#1112" target="_blank" style="color:#1960a8"> Regulation 1112</a>, commonly called "the Searle increase", which allows an across-the-board retroactive rent increase averaging 28 percent for all rent controlled units and a 5 percent AGA, for an average total across-the-board rent increase of 33 percent. </p>
       </div>
       <div class="panel">
+        <a href="http://newsprint.dailycal.org/issues/1991/11/04/#1" target="_blank">
+          <img class="article" src="images/nov41991.jpg" alt="Daily Cal from Nov 4, 1991" width="45%">
+        </a>
+        <p id="caption"> Daily Cal Archives/File </p>
+      </div>
+      <!-- <div class="panel">
         <p class="year"> <b> 1992 </b> $487 </p>
       </div>
       <div class="panel">
         <p class="year"> <b> 1993 </b> $507 </p>
-      </div>
+      </div> -->
       <div class="panel">
         <p class="year"> <b> 1994 </b> $545 </p>
         <p class="details"> Major rent increases loosen up the rent control system. Berkeley joins the housing crisis emerging in the Bay Area. </p>
+      </div>
+      <div class="panel">
+        <a href="http://newsprint.dailycal.org/issues/1995/05/16/#1" target="_blank">
+          <img class="article" src="images/may161995.jpg" alt="Daily Cal from May 16, 1995" width="85%">
+        </a>
+        <p id="caption"> Daily Cal Archives/File </p>
       </div>
       <div class="panel" id="year">
         <p class="year"> <b> 1995 </b> $533 </p>
@@ -149,6 +182,18 @@
         <p class="details"> The <a href="https://www.cityofberkeley.info/Rent_Stabilization_Board/Home/California_Civil_Code__Sec_1954_50-1954_535_(Costa-Hawkins).aspx" target="_target" style="color:#1960a8">Costa Hawkins Rental Housing Act</a> prevents rent control from covering any property built after the law passed and mandates “vacancy decontrol”, which allows landlords to raise rents to market rate after a tenant moves out of a rent-controlled unit. It is essentially a statewide-rent control restriction. </p>
       </div>
       <div class="panel">
+        <a href="http://newsprint.dailycal.org/issues/1995/10/09/#1" target="_blank">
+          <img class="article"  src="images/oct91995.jpg" alt="Daily Cal from Oct 9, 1995" width="85%">
+        </a>
+        <p id="caption"> Daily Cal Archives/File </p>
+      </div>
+      <div class="panel">
+        <a href="http://newsprint.dailycal.org/issues/1995/10/10/#1" target="_blank">
+          <img class="article" src="images/oct101995.jpg" alt="Daily Cal from Oct 10, 1995" width="85%">
+        </a>
+        <p id="caption"> Daily Cal Archives/File </p>
+      </div>
+      <!-- <div class="panel">
         <p class="year"> <b> 1996 </b> $570 </p>
       </div>
       <div class="panel">
@@ -159,11 +204,11 @@
       </div>
       <div class="panel">
         <p class="year"> <b> 1999 </b> $690 </p>
-      </div>
+      </div> -->
       <div class="panel">
         <p class="year"> <b> 2000 </b> $750 </p>
       </div>
-      <div class="panel">
+      <!-- <div class="panel">
         <p class="year"> <b> 2001 </b> $810 </p>
       </div>
       <div class="panel">
@@ -174,11 +219,11 @@
       </div>
       <div class="panel">
         <p class="year"> <b> 2004 </b> $932 </p>
-      </div>
+      </div> -->
       <div class="panel">
         <p class="year"> <b> 2005 </b> $950 </p>
       </div>
-      <div class="panel">
+      <!-- <div class="panel">
         <p class="year"> <b> 2006 </b> $994 </p>
       </div>
       <div class="panel">
@@ -189,11 +234,11 @@
       </div>
       <div class="panel">
         <p class="year"> <b> 2009 </b> $1150 </p>
-      </div>
+      </div> -->
       <div class="panel">
         <p class="year"> <b> 2010 </b> $1151 </p>
       </div>
-      <div class="panel">
+      <!-- <div class="panel">
         <p class="year"> <b> 2011 </b> $1195 </p>
       </div>
       <div class="panel">
@@ -204,16 +249,16 @@
       </div>
       <div class="panel">
         <p class="year"> <b> 2014 </b> $1375 </p>
-      </div>
+      </div> -->
       <div class="panel">
         <p class="year"> <b> 2015 </b> $1474 </p>
       </div>
-      <div class="panel">
+      <!-- <div class="panel">
         <p class="year"> <b> 2016 </b> $1572 </p>
       </div>
       <div class="panel">
         <p class="year"> <b> 2017 </b> $1675 </p>
-      </div>
+      </div> -->
       <div class="panel" id="year">
         <p class="year"> <b> 2018 </b> </p>
         <h4> NOVEMBER </h4>
@@ -221,11 +266,13 @@
         Local <a href="https://www.cityofberkeley.info/uploadedFiles/Clerk/Elections/Rent%20Ordinance%20-%20All_Ballot%20Question%20and%20Full%20Text.pdf" target="_blank" style="color:#1960a8"> Measure Q</a> passes, but because Proposition 10 fails, it does not go entirely into effect. </p>
       </div>
     </div>   
-    <div class="ending">        
-      <div class="panel">
-        <p id="subtitle"> The data indicates that median rent has increased since 1978. </p>
-        <p id="details"> While this graph does not take inflation into consideration, Berkeley rent has, in general, increased at a faster rate than the Bay Area Consumer Price Index, and <a href="https://www.bls.gov/cpi/" target="_blank" style="color:#1960a8"> CPI</a> is an estimator for inflation. </p>
-        <p id="details"> The legislation passed through the years appears to have done little to counter or even minimize that, which is especially apparent in the years since Costa Hawkins and reinforced by last November’s (2018) results, despite the present growing housing and housing affordability crisis. </p>
+    <div class="panel">
+        <div class="ending">    
+          <div id="background">  
+          <p id="subtitle"> The data indicates that median rent has increased since 1978. </p>
+          <p id="details"> While this graph does not take inflation into consideration, Berkeley rent has, in general, increased at a faster rate than the Bay Area Consumer Price Index, and <a href="https://www.bls.gov/cpi/" target="_blank" style="color:#1960a8"> CPI</a> is an estimator for inflation. </p>
+          <p id="details"> The legislation passed through the years appears to have done little to counter or even minimize that, which is especially apparent in the years since Costa Hawkins and reinforced by last November’s (2018) results, despite the present growing housing and housing affordability crisis. </p>
+        </div>
       </div>
     </div>
     <div class="panel" id="last">

@@ -78,7 +78,7 @@ d3.csv("../data/data.csv", function(d) {
     .style("fill", "none")
     .style("stroke-opacity", .8)
     .style("stroke", "#c06014")
-    .style("stroke-width", 4)
+    .style("stroke-width", 6)
     .style("stroke-dasharray", function(d) {
       var l = d3.select(this).node().getTotalLength();
       return l + "px, " + l + "px";
@@ -88,7 +88,7 @@ d3.csv("../data/data.csv", function(d) {
       });
 
   var pathScale = d3.scaleLinear()
-    .domain([2 * HEIGHT, SCROLL_LENGTH])
+    .domain([3.5 * HEIGHT, SCROLL_LENGTH + 3.5 * HEIGHT])
     .range([0, path.node().getTotalLength()])
     .clamp(true);  
 
@@ -139,7 +139,7 @@ d3.csv("../data/data.csv", function(d) {
       .text("Median Rent (in Dollars)");
 
     pathScale
-      .domain([2 * HEIGHT, SCROLL_LENGTH])
+      .domain([3.5 * HEIGHT, SCROLL_LENGTH + 3.5 * HEIGHT])
       .range([0, path.node().getTotalLength()]);
 
     path
@@ -162,7 +162,7 @@ var render = function() {
   if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
     
-    if (scrollTop > window.innerHeight) {
+    if (scrollTop > 2 * window.innerHeight) {
         d3.select("#sticky")
           .style("display", "block");
     } else {
