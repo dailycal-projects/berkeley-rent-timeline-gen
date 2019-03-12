@@ -20,14 +20,32 @@
 }
 
 
+/* Wrapper class for positioning divs side-by-side */
+
+.wrapper { 
+  overflow:hidden;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+#right { 
+  float: right;
+  width: 300px;
+}
+
+
+/* Images */
+
 img {
   height: auto;
-  margin-left: 30px;
+  margin: 0 auto;
   align: middle;
 }
 
 .article {
-  border: 3px black;
+  margin-left: 20px;
+  width: 90%;
 }
 
 .article:hover {
@@ -35,18 +53,52 @@ img {
   filter: alpha(opacity=50); 
 }
 
-/* PANEL things */
+#top {
+  background-image: url(images/berkeley.jpg);
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover; 
+}
 
+.opacity {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+#caption {
+  font-family: BentonSans;
+  font-size: 10px;
+}
+
+
+/* Panels */
 .panel {
   text-align: center;
   position: relative;
   margin: 0 auto;
-  padding-top: 5px;
   z-index: 100;
 }
 
-#top {
-  padding-top: 10vh;
+.year {
+  text-align: center;
+  font-size: 20px;
+}
+
+.details {
+  background: rgba(255, 255, 255, 0.6); 
+  display: inline-block;
+  text-align: left;
+  margin-left: 55px;
+  margin-right: 35px;
+  border-radius: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow:0 0 1px 2px #ffffd7;
+  font-family: Georgia,Times,Times New Roman,serif;
+  font-size: 17px;
 }
 
 #first {
@@ -58,38 +110,12 @@ img {
 }
 
 #last {
-  padding-top: 20px;
+  padding-top: 20vh;
   padding-bottom: 50px;
 }
 
-.panel .year {
-    text-align: center;
-    font-size: 20px;
-}
 
-.panel .details {
-    background: rgba(255, 255, 255, 0.6); 
-    display: inline-block;
-    text-align: left;
-    margin-left: 55px;
-    margin-right: 35px;
-    border-radius: 3px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    box-shadow:0 0 1px 2px #ffffd7;
-    font-family: Georgia,Times,Times New Roman,serif;
-    font-size: 17px;
-}
-
-#caption {
-  font-family: BentonSans;
-  font-size: 12px;
-}
-
-/* GRAPH things */
-
+/* Graph */
 .axis line {
   stroke: #0f1626;
 }
@@ -107,105 +133,10 @@ img {
   pointer-events: all;
 }
 
-/* BEGINNING things */
 
-header {
-  padding: 20px;
-  @media (max-width: $width-medium) {
-    padding: 0 15px 15px;
-  }
-  &+figure{
-    margin-top: 0;
-  }
+/* Intro */
 
-  p.category,
-  p.category a {
-    color: #284D67;
-    font-family: $sans;
-    font-size: 1em;
-    font-weight: bold;
-    margin-bottom: 0;
-    text-transform: uppercase;
-  }
-
-  h1 {
-    font-family: $serif;
-    font-size: 2.5em;
-    line-height: 1.1em;
-    margin: 0;
-    padding: 0px 5px 10px;
-    max-width: 900px;
-    @media (max-width: $width-medium) {
-      font-size: 2.5em;
-      margin: 5px 0 15px;
-      padding: 0;
-    }
-    @media (max-width: $width-small) {
-      font-size: 2.33em;
-      margin-top: 0;
-    }
-  }
-
-  .subhead {
-    max-width: 750px;
-    padding: 0;
-    font-family: $sans;
-    font-size: 1em;
-    font-weight: normal;
-    line-height: 1.2em;
-    margin: 5px 0 10px 0;
-    padding-bottom: 0;
-
-    @media (max-width: $width-medium) {
-      font-size: 1.25em;
-      }
-  }
-
-  .info p,
-  .info a {
-    max-width: 750px;
-    color: #666;
-    font-family: $sans;
-    line-height: 1.3em;
-    margin-top: .5em;
-    font-size: 0.9em;
-    margin-bottom: 10px;
-
-    @media (max-width: $width-small) {
-      font-size: .96em;
-    }
-  }
-
-  .info a {
-    color: #284D67;
-  }
-
-  .info{
-    a:hover, a:focus{
-      text-decoration: underline;
-    }
-    .byline{
-      text-transform:uppercase;
-      font-weight: 700;
-    }
-  }
-}
-
-header.center{
-  p.category,
-  p.category a,
-  h1,
-  p.subhead,
-  .info p{
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-}
-
-/* ENDING things */
-
-.ending {
+.intro {
   margin: 0 auto;
   height: 100vh;
   width: 100vw;
@@ -217,37 +148,41 @@ header.center{
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+  font-family: BentonSans;
+  padding-left: 10vh;
+  padding-right: 10vh;
 }
 
-.ending #subtitle {
-  font-size: 25px;
-  padding-top: 20px;
-}
-
-.ending #details {
-  font-size: 15px;
-  font-family: Georgia,Times,Times New Roman,serif;
-  display: inline-block; 
+.intro p {
+  font-size: 20px;
   text-align: left;
 }
 
-#background {
-  padding-left: 20px;
-  padding-right: 20px;
-  background: rgba(255, 255, 255, 0.7); 
-  box-shadow:0 0 1px 2px #ffffd7;
-}
 
 /* Mobile styles */
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 1100px) {
   .panel {
     width: 60%;
   }
+  .wrapper {
+    width: 60%;
+  }
+  #left { 
+    width: 40%;
+  }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1100px) {
   .panel {
     width: 80%;
+  }
+  #left { 
+    width: 60%;
+  }
+  #right { 
+    margin: 0 auto;
+    float: none;
+    width: 300px;
   }
 }
