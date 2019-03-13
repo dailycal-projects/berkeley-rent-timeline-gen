@@ -172,9 +172,11 @@ img {
   .panel {
     width: 60%;
   }
+
   .wrapper {
     width: 60%;
   }
+
   #left { 
     width: 40%;
   }
@@ -184,15 +186,18 @@ img {
   .panel {
     width: 80%;
   }
+
   #left { 
     width: 60%;
   }
+
   #right { 
     margin: 0 auto;
     float: none;
     width: 300px;
   }
 }
+
 @media screen and (max-width: 580px) {
   .center {
     padding: 80px 25px;

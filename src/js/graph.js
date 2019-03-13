@@ -44,14 +44,18 @@ d3.csv("../data/data.csv", function(d) {
     .x(function(d) { return xScale(d.year); })
     .y(function(d) { return yScale(d.rent); })
 
+  var infLine = d3.line()
+    .x(function(d) { return xScale(d.year); })
+    .y(function(d) { return yScale(d.infl); })
+
   xScale.domain(data.map(function(d) { return d.year; })).range([0, WIDTH - 2 * margin.right]);
   yScale.domain([0, 1800]).range([HEIGHT - 2 * margin.bottom, 0]);
 
-  var years = [1978, 1983, 1988, 1993, 1998, 2003, 2008, 2013];
+  var years = [1978, 1983, 1988, 1993, 1998, 2003, 2008, 2013, 2018];
   var x = d3.axisBottom(xScale).tickValues(years);
 
   var xAxis = g.append("g")
-    .attr("transform", "translate(" + (-5) + "," + (HEIGHT - 2 * margin.bottom) + ")")
+    .attr("transform", "translate(" + (-15) + "," + (HEIGHT - 2 * margin.bottom) + ")")
     .attr("class", "axis")
     .call(x)
     .call(g => g.select(".domain").remove());
@@ -71,8 +75,8 @@ d3.csv("../data/data.csv", function(d) {
     .style("font-family", "BentonSans")
     .text("Median Rent (in Dollars)"); 
 
-  var path = g.append("path")
-    .attr("d",line(data))
+  var rentPath = g.append("path")
+    .attr("d", line(data))
     .attr("transform", "translate(" + 0 + "," + 2 * margin.top + ")")
     .attr("class","line")
     .style("fill", "none")
@@ -87,9 +91,30 @@ d3.csv("../data/data.csv", function(d) {
       return d3.select(this).node().getTotalLength() + "px";
       });
 
-  var pathScale = d3.scaleLinear()
-    .domain([4 * HEIGHT, SCROLL_LENGTH])
-    .range([0, path.node().getTotalLength()])
+  var inflPath = g.append("path")
+    .attr("d", infLine(data))
+    .attr("transform", "translate(" + 0 + "," + 2 * margin.top + ")")
+    .attr("class","line")
+    .style("fill", "none")
+    .style("stroke-opacity", .8)
+    .style("stroke", "#6199e2")
+    .style("stroke-width", 6)
+    .style("stroke-dasharray", function(d) {
+      var l = d3.select(this).node().getTotalLength();
+      return l + "px, " + l + "px";
+      })
+    .style("stroke-dashoffset", function(d) {
+      return d3.select(this).node().getTotalLength() + "px";
+      });
+
+  var rentScale = d3.scaleLinear()
+    .domain([4 * window.innerHeight, SCROLL_LENGTH])
+    .range([0, rentPath.node().getTotalLength()])
+    .clamp(true); 
+
+  var inflScale = d3.scaleLinear()
+    .domain([4 * window.innerHeight, SCROLL_LENGTH])
+    .range([0, inflPath.node().getTotalLength()])
     .clamp(true);  
 
   var scrollTop = 0
@@ -118,7 +143,7 @@ d3.csv("../data/data.csv", function(d) {
     yScale.range([HEIGHT - 2 * margin.bottom, 0]);
 
     xAxis
-      .attr("transform", "translate(" + (-5) + "," + (HEIGHT - 2 * margin.bottom) + ")")
+      .attr("transform", "translate(" + (-15) + "," + (HEIGHT - 2 * margin.bottom) + ")")
       .attr("class", "axis")
       .call(x)
       .call(g => g.select(".domain").remove());
@@ -137,11 +162,15 @@ d3.csv("../data/data.csv", function(d) {
       .style("text-anchor", "middle")
       .text("Median Rent (in Dollars)");
 
-    pathScale
-      .domain([4 * HEIGHT, SCROLL_LENGTH])
-      .range([0, path.node().getTotalLength()]);
+    rentScale
+      .domain([4 * window.innerHeight, SCROLL_LENGTH])
+      .range([0, rentPath.node().getTotalLength()]);
 
-    path
+    inflScale = d3.scaleLinear()
+      .domain([4 * window.innerHeight, SCROLL_LENGTH])
+      .range([0, inflPath.node().getTotalLength()])
+
+    rentPath
       .attr("d", line(data))
       .style("stroke-dasharray", function(d) {
         console.log(d3.select(this));
@@ -149,7 +178,18 @@ d3.csv("../data/data.csv", function(d) {
         return l + "px, " + l + "px";
       })
       .style("stroke-dashoffset", function(d) {
-        return d3.select(this).node().getTotalLength() - pathScale(scrollTop) + "px";
+        return d3.select(this).node().getTotalLength() - rentScale(scrollTop) + "px";
+      });
+
+    inflPath
+      .attr("d", infLine(data))
+      .style("stroke-dasharray", function(d) {
+        console.log(d3.select(this));
+        var l = d3.select(this).node().getTotalLength();
+        return l + "px, " + l + "px";
+      })
+      .style("stroke-dashoffset", function(d) {
+        return d3.select(this).node().getTotalLength() - inflScale(scrollTop) + "px";
       });
 }
 
@@ -161,7 +201,7 @@ var render = function() {
   if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
     
-    if (scrollTop > 3 * window.innerHeight) {
+    if (scrollTop > 3.5 * window.innerHeight) {
         d3.select("#sticky")
           .style("display", "block");
     } else {
@@ -169,9 +209,14 @@ var render = function() {
           .style("display", "none");
     }
 
-    path
+    rentPath
       .style("stroke-dashoffset", function(d) {
-        return (path.node().getTotalLength() - pathScale(scrollTop) + "px");
+        return (rentPath.node().getTotalLength() - rentScale(scrollTop) + "px");
+      });
+
+    inflPath
+      .style("stroke-dashoffset", function(d) {
+        return (inflPath.node().getTotalLength() - inflScale(scrollTop) + "px");
       });
   }
 
