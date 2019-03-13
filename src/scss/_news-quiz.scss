@@ -63,7 +63,14 @@ img {
 
 .opacity {
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+.center {
+  padding: 160px 80px;
+  height: 100%;
+  width: 100%;
 }
 
 #caption {
@@ -184,5 +191,18 @@ img {
     margin: 0 auto;
     float: none;
     width: 300px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .center {
+    padding: 80px 25px;
+  }
+
+  .opacity h1 {
+    font-size: 1.5em;
+  }
+
+  .opacity {
+    margin-top: 50px;
   }
 }

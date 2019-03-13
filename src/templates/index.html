@@ -28,23 +28,24 @@
   <header class="center">
     <div class="opacity">
       <p class="category">
-        <a href="http://www.dailycal.org/section/special/housing-survival-guide-2019/" target="_blank">HOUSING SURVIVAL GUIDE 2019</a>
+        <a href="{{ARCHIE.category_link}}"" target="_blank">{{ARCHIE.category}}</a>
         </p>
-        <h1>A Comprehensive Timeline of Rent Prices and Legislation, From 1978 to Today</h1>
+        <h1>{{ ARCHIE.headline }}</h1>
+        <p class="subhead">{{ARCHIE.subhead}}</p>
         <div class="info">
             <p>
-                By <span class="byline"><a href="http://www.dailycal.org/author/pkapshikar/">Purva Kapshikar</a></span> <br /> <span class="timestamp"> <time datetime="2019-03-03T00:00-0700">March 3, 2019</time></span>
+                By <span class="byline"><a href="http://www.dailycal.org/author/pkapshikar/">Purva Kapshikar</a></span> 
+                <br>
+                Photo credit: Amanda Ramirez/File
+
+                <br /> 
+                <span class="timestamp"> <time datetime="{{META.timestamp}}">{{ARCHIE.dateline | upper}}</time></span>
             </p>
         </div>
-        <p class="subhead">Scroll to begin. </p>
       </div>
-      <p class="subhead" style="font-size: 12px; text-align: right; color: white"> Amanda Ramirez/File </p>
+      <!-- <p class="subhead" style="font-size: 12px; text-align: right; color: white"> Amanda Ramirez/File </p> -->
   </header>
 </div>
-<!-- <figure class="large no-gutters-phone">
-    <img src="https:placehold.it/800x600?text=lead+art+here" alt="An awesome picture" />
-    <figcaption>Your concise caption here. <figcredit>First Last | Photo service</figcaption>
-</figure> -->
 {%endblock%}
 
 {%block content%}
@@ -54,62 +55,59 @@
   <svg id="graph"> </svg>
   <div id="content">
     <div class="intro">    
-      <p> The x- and y-axes of this graph denote years and median rent prices, respectively. </p>
-      <p> While the data does not take inflation into consideration, Berkeley rent has, in general, increased at a faster rate than the Bay Area Consumer Price Index, and <a href="https://www.bls.gov/cpi/" target="_blank" style="color:#1960a8"> CPI</a> is an estimator for inflation. </p>
-      <p> The legislation passed through the years appears to have done little to counter or even minimize that, which is especially apparent in the years since Costa Hawkins and reinforced by last November’s (2018) results, despite the present growing housing and housing affordability crisis. </p>
-      <p> In this piece, rent prices accompany years with major legislation, <i> Daily Cal </i> clippings, or 5-year intervals. Click on a clipping to read the original paper in the <a href="http://newsprint.dailycal.org/" target="_blank" style="color:#1960a8"> <i> Daily Cal </i> archives</a>. </p>
+      {{ ARCHIE.intro | markdown }}
     </div>
     <div class="panel">
-      <p class="details"> During World War II, rent controls, imposed by the federal government, are applied in Berkeley for the first time. They expire in August 1951, after a resolution stating that rental shortages no longer exist. </p>
+      <p class="details">{{ ARCHIE.panel_ww2 | safe }}</p>
     </div>
     <div class="panel">
       <p class="year"> <b> 1971 </b> </p>
       <h4> AUGUST </h4>
-      <p class="details"> President Nixon institutes temporary national wage and price controls, which include a freeze on rent increases. </p>
+      <p class="details">{{ ARCHIE.panel_1971 | safe }}</p>
     </div>
     <div class="panel">
       <p class="year"> <b> 1972 </b> </p>
       <h4> JUNE </h4>
-      <p class="details"> The Rent Control Charter Amendment, an initiative measure to continue the rent freeze, is placed on the ballot and passes. </p>
+      <p class="details">{{ ARCHIE.panel_1972 | safe }}</p>
     </div>
     <div class="panel">
       <p class="year"> <b> 1973 </b> </p>
       <h4> JANUARY </h4>
-      <p class="details"> The price controls instituted by the federal government end. </p>
+      <p class="details"> {{ ARCHIE.panel_1973_jan | safe }} </p>
       <h4> MAY </h4>
-      <p class="details"> In <i> Birkenfeld v. the City of Berkeley</i>, Alameda County Superior Court Judge Robert Bostick rules the Rent Control Charter Amendment as unconstitutional. </p>
+      <p class="details"> {{ ARCHIE.panel_1973_may | safe }} </p>
     </div>
     <div class="panel">
       <p class="year"> <b> 1976 </b> </p>
       <h4> JUNE </h4>
-      <p class="details"> The California Supreme Court, which agrees to take the case, unanimously overturns the 1972 rent control measure but supports the legality of local rent control. </p>
+      <p class="details"> {{ ARCHIE.panel_1976 | safe }} </p>
     </div>
     <div class="panel">
       <p class="year"> <b> 1978 </b> $219 </p>
       <h4> JUNE </h4>
-      <p class="details"> California voters pass Proposition 13, an initiative measure that amends the state constitution to reduce property taxes and limit future property tax increases. </p>
+      <p class="details"> {{ ARCHIE.panel_1978_june | safe }} </p>
       <h4> NOVEMBER </h4>
-      <p class="details"> Berkeley voters pass the Renter Property Tax Relief Ordinance, which temporarily reduces rents to provide renters a property tax rebate. The ordinance is “self-enforcing”, meaning that tenants are expected to enforce it if it is violated by a landlord. This leads to widespread non-compliance. </p>
+      <p class="details"> {{ ARCHIE.panel_1978_nov | safe }} </p>
     </div>
 
     <!-- Position "left" and "right" divs side-by-side or stacked -->
     <div class="wrapper"> 
       <p class="year"> <b> 1980 </b> $223 </p>
       <h4 id="left"> JUNE </h4>
-      <p class="details" id="left"> Berkeley voters pass the Rent Stabilization and Eviction for Good Cause Ordinance (now <a href="https://www.codepublishing.com/CA/Berkeley/?Berkeley13/Berkeley1376/Berkeley1376.html&?f" target="_blank" style="color:#1960a8"> Berkeley Municipal Code Chapter 13.76</a>), the basic framework of Berkeley rent control. A base rent is established as the lawful rent. The first Berkeley Rent Stabilization Board sets annual across-the-board rent increases, called the <a href="https://www.cityofberkeley.info/rent/AGA.aspx" target="_blank" style="color:#1960a8"> Annual General Adjustment (AGA)</a>, to account for increases in operating costs. </p>
+      <p class="details" id="left"> {{ ARCHIE.panel_1980_left_a | safe }} </p>
       <div id="right">
         <a href="http://newsprint.dailycal.org/issues/1981/01/05/#1" target="_blank">
           <img class="article" src="images/jan51981.jpg" alt="Daily Cal from Jan 5, 1981" width="75%">
         </a>
         <p id="caption"> Daily Cal Archives/File </p>
       </div>
-      <p class="details" id="left"> Berkeley joins Santa Monica as the only California city with strong rent control laws that kept rents under permanent control. (They are later joined by Cotati, Palm Springs, East Palo Alto and West Hollywood.) </p>
+      <p class="details" id="left"> {{ ARCHIE.panel_1980_left_b | safe }} </p>
     </div>
 
     <div class="panel">
       <p class="year"> <b> 1981 </b> $234 </p>
       <h4> JANUARY </h4>
-      <p class="details"> The first Annual General Adjustment takes effect. </p>
+      <p class="details"> {{ ARCHIE.panel_1981 | safe }} </p>
     </div>
 
     <div class="panel">
@@ -121,7 +119,7 @@
     <div class="panel">
       <p class="year"> <b> 1982 </b> $255 </p>
       <h4> NOVEMBER </h4>
-      <p class="details"> An initiative Charter amendment that replaces the appointed Rent Board with an elected <a href="https://www.cityofberkeley.info/Rent_Stabilization_Board/Department_Master_and_Collections/TEMP_-_About_Us_and_Contact_Us/Rent_Board_-_About_Us.aspx" target="_blank" style="color:#1960a8"> Rent Board</a> passes. </p>
+      <p class="details"> {{ ARCHIE.panel_1982 | safe }} </p>
     </div>
     <div class="panel">
       <p class="year"> <b> 1985 </b> $272 </p>
@@ -133,7 +131,7 @@
     <div class="wrapper"> 
       <p class="year"> <b> 1991 </b> $361 </p>
       <h4 id="left"> APRIL </h4>
-      <p class="details" id="left"> The Rent Board passes <a href="https://www.cityofberkeley.info/Rent_Stabilization_Board/Home/Regulation_1262.aspx" target="_blank" style="color:#1960a8"> Regulation 1262</a>, by which landlords can request that operating income be changed due to unusual circumstances in that year, meaning that they can petition for rent increases.</p>
+      <p class="details" id="left"> {{ ARCHIE.panel_1991_april | safe }} </p>
       <div id="right">
         <a href="http://newsprint.dailycal.org/issues/1991/11/04/#1" target="_blank">
           <img class="article" src="images/nov41991.jpg" alt="Daily Cal from Nov 4, 1991" width="75%">
@@ -141,11 +139,11 @@
         <p id="caption"> Daily Cal Archives/File </p>
       </div>
       <h4 id="left"> SEPTEMBER </h4>
-      <p class="details" id="left"> The Rent Board passes <a href="https://www.cityofberkeley.info/Rent_Stabilization_Board/Home/Regulation_Chapter_11_part_3.aspx#1112" target="_blank" style="color:#1960a8"> Regulation 1112</a>, commonly called "the Searle increase", which allows an across-the-board retroactive rent increase averaging 28 percent for all rent controlled units and a 5 percent AGA, for an average total across-the-board rent increase of 33 percent. </p>
+      <p class="details" id="left"> {{ ARCHIE.panel_1991_sept | safe }} </p>
     </div>
     
     <div class="panel">
-      <p class="details"> Major rent increases loosen up the rent control system. Berkeley joins the housing crisis emerging in the Bay Area. </p>
+      <p class="details"> {{ ARCHIE.panel_1994 | safe }} </p>
       <p class="year"> <b> 1994 </b> $545 </p>
     </div>
     <div class="panel">
@@ -157,7 +155,7 @@
     <div class="panel" id="year">
       <p class="year"> <b> 1995 </b> $533 </p>
       <h4> JUNE </h4>
-      <p class="details"> The <a href="https://www.cityofberkeley.info/Rent_Stabilization_Board/Home/California_Civil_Code__Sec_1954_50-1954_535_(Costa-Hawkins).aspx" target="_target" style="color:#1960a8">Costa Hawkins Rental Housing Act</a> prevents rent control from covering any property built after the law passed and mandates “vacancy decontrol”, which allows landlords to raise rents to market rate after a tenant moves out of a rent-controlled unit. It is essentially a statewide-rent control restriction. </p>
+      <p class="details"> {{ ARCHIE.panel_1995 | safe }} </p>
     </div>
     <!-- <div class="panel">
       <a href="http://newsprint.dailycal.org/issues/1995/10/09/#1" target="_blank">
@@ -186,8 +184,7 @@
     <div class="panel" id="year">
       <p class="year"> <b> 2018 </b> </p>
       <h4> NOVEMBER </h4>
-      <p class="details"> Proposition 10 fails to pass; Costa Hawkins is not repealed. 
-      Local <a href="https://www.cityofberkeley.info/uploadedFiles/Clerk/Elections/Rent%20Ordinance%20-%20All_Ballot%20Question%20and%20Full%20Text.pdf" target="_blank" style="color:#1960a8"> Measure Q</a> passes, but because Proposition 10 fails, it does not go entirely into effect. </p>
+      <p class="details"> {{ ARCHIE.panel_2018 | safe }} </p>
     </div>
     <!-- <div class="panel" id="year">
       <p class="year"> <b> 2019 </b> </p>
@@ -199,8 +196,7 @@
     <div class="panel" id="last">
       <div class="nerd-box">
         <h4>About this story</h4>
-        <p> The data was collected from City of Berkeley <a href="https://www.cityofberkeley.info/rent/reports/" target="_blank" style="color:#1960a8">economic data and historical reports</a>, such as this 1998 <a href="https://www.cityofberkeley.info/uploadedFiles/Rent_Stabilization_Board/Level_3_-_General/Berkeley_Rent_Control_1978-1994_1998_Planning_Dept_report.pdf" target="_blank" style="color:#1960a8"> report</a>  on rent control in Berkeley, this <a href="https://www.cityofberkeley.info/uploadedFiles/Rent_Stabilization_Board/Level_3_-_General/Economic%20Study%20summary%20PowerPoint%20for%20web.pdf" target="_blank" style="color:#1960a8">economic study</a> from 2010, and quarterly <a href="https://www.cityofberkeley.info/uploadedFiles/Rent_Stabilization_Board/Level_3_-_General/INFO_Market%20Medians%20report%20through%20Q4_2017.pdf" target="_blank" style="color:#1960a8">Market Medians</a> reports. The graph only goes up to 2017 and the data does not take inflation into consideration. </p>
-        <br>
+        <p> {{ ARCHIE.nerdbox | markdown }} </p>
         <p> This project is open-source on <a href="https://github.com/dailycal-projects/berkeley-rent-timeline-gen" target="_blank" style="color:#1960a8">Github</a>. </p>
         <br>
         <h4>Support us</h4>
