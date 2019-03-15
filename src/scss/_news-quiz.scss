@@ -140,6 +140,17 @@ img {
   pointer-events: all;
 }
 
+.yLabel {
+  font-size: 0.9em;
+}
+
+tspan {
+  fill: #6199e2;
+}
+
+tspan:first-of-type {
+  fill: #c06014;
+}
 
 /* Intro */
 

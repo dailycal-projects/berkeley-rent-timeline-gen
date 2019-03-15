@@ -71,13 +71,16 @@ d3.csv("../data/data.csv", function(d) {
     .call(g => g.select(".domain").remove());
 
   var yLabel = g.append("text")
+    .attr("class", "yLabel")
     .attr("transform", "rotate(-90)")
     .attr("y", -margin.left)
     .attr("x", -(HEIGHT / 2))
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .style("font-family", "BentonSans")
-    .text("Median Rent (in Dollars)"); 
+    .html(function(d) {
+      return 'Median Rent ($), <tspan>unadjusted</tspan> and <tspan>adjusted</tspan>';
+    }); 
 
   var rentPath = g.append("path")
     .attr("d", line(data))
@@ -156,12 +159,15 @@ d3.csv("../data/data.csv", function(d) {
       .call(g => g.select(".domain").remove());
 
     yLabel
+      .attr("class", "yLabel")
       .attr("transform", "rotate(-90)")
       .attr("y", -margin.left)
       .attr("x", -(HEIGHT / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
-      .text("Median Rent (in Dollars)");
+      .html(function(d) {
+        return 'Median Rent ($), <tspan>unadjusted</tspan> and <tspan>adjusted</tspan>';
+      });
 
     rentScale
       .domain([4 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
