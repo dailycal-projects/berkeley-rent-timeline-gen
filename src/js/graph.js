@@ -1,21 +1,23 @@
 var d3 = require('d3');
 var WIDTH, HEIGHT;
 
-if (window.innerWidth < 380) {
+function setGraphDimensions() {
+  if (window.innerWidth < 400) {
     WIDTH = 300;
     HEIGHT = 500; 
-} else if (window.innerWidth < 450) {
+  } else if (window.innerWidth < 600) {
     WIDTH = 400;
-    HEIGHT = 500; 
-} else if (window.innerWidth < 800) {
-    WIDTH = 600;
     HEIGHT = 500;
-} else {
+  } else if (window.innerWidth < 900) {
+    WIDTH = 600;
+    HEIGHT = 600;
+  } else {
     WIDTH = 900;
     HEIGHT = 600;
+  }
 }
 
-var margin = {top: 20, right: 20, bottom: 25, left: 50};
+var margin = {top: 20, right: 30, bottom: 25, left: 50};
 
 /* selection.node() -- returns the first (non-null) element in this selection. */
 var body = d3.select('body').node();
@@ -25,6 +27,8 @@ var content = d3.select('#content');
 /* .getBoundingClientRect() -- returns the size of an element and its position relative to the viewport. */
 var SCROLL_LENGTH = content.node().getBoundingClientRect().height;
 
+setGraphDimensions();
+
 var svg = d3.select("#sticky").append("svg")
     .attr('width', WIDTH)
     .attr('height', HEIGHT)
@@ -32,8 +36,8 @@ var svg = d3.select("#sticky").append("svg")
 var g = svg.append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var xScale = d3.scaleBand().rangeRound([0, WIDTH - margin.left]).paddingInner(0.1);
-var yScale = d3.scaleLinear().rangeRound([HEIGHT - margin.bottom, -margin.bottom]);
+var xScale = d3.scaleBand().rangeRound([0, WIDTH - 2 * margin.left]).paddingInner(0.1);
+var yScale = d3.scaleLinear().rangeRound([HEIGHT - 2 * margin.bottom, 0]);
 
 d3.csv("../data/data.csv", function(d) {
   return d;
@@ -46,7 +50,7 @@ d3.csv("../data/data.csv", function(d) {
 
   var infLine = d3.line()
     .x(function(d) { return xScale(d.year); })
-    .y(function(d) { return yScale(d.infl); })
+    .y(function(d) { return yScale(d.cpi18); })
 
   xScale.domain(data.map(function(d) { return d.year; })).range([0, WIDTH - 2 * margin.right]);
   yScale.domain([0, 1800]).range([HEIGHT - 2 * margin.bottom, 0]);
@@ -55,7 +59,7 @@ d3.csv("../data/data.csv", function(d) {
   var x = d3.axisBottom(xScale).tickValues(years);
 
   var xAxis = g.append("g")
-    .attr("transform", "translate(" + (-15) + "," + (HEIGHT - 2 * margin.bottom) + ")")
+    .attr("transform", "translate(" + (-10) + "," + (HEIGHT - 2 * margin.bottom) + ")")
     .attr("class", "axis")
     .call(x)
     .call(g => g.select(".domain").remove());
@@ -108,12 +112,12 @@ d3.csv("../data/data.csv", function(d) {
       });
 
   var rentScale = d3.scaleLinear()
-    .domain([4 * window.innerHeight, SCROLL_LENGTH])
+    .domain([4 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
     .range([0, rentPath.node().getTotalLength()])
     .clamp(true); 
 
   var inflScale = d3.scaleLinear()
-    .domain([4 * window.innerHeight, SCROLL_LENGTH])
+    .domain([4 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
     .range([0, inflPath.node().getTotalLength()])
     .clamp(true);  
 
@@ -128,11 +132,8 @@ d3.csv("../data/data.csv", function(d) {
     });
 
   var setDimensions = function() {
-    var isMobile = window.innerWidth < 850 ? true : false;
+    setGraphDimensions();
 
-    WIDTH = isMobile ? window.innerWidth : 900;
-    HEIGHT = isMobile ? 500 : 600;
-    
     SCROLL_LENGTH = content.node().getBoundingClientRect().height;
 
     svg
@@ -143,7 +144,7 @@ d3.csv("../data/data.csv", function(d) {
     yScale.range([HEIGHT - 2 * margin.bottom, 0]);
 
     xAxis
-      .attr("transform", "translate(" + (-15) + "," + (HEIGHT - 2 * margin.bottom) + ")")
+      .attr("transform", "translate(" + (-10) + "," + (HEIGHT - 2 * margin.bottom) + ")")
       .attr("class", "axis")
       .call(x)
       .call(g => g.select(".domain").remove());
@@ -163,17 +164,16 @@ d3.csv("../data/data.csv", function(d) {
       .text("Median Rent (in Dollars)");
 
     rentScale
-      .domain([4 * window.innerHeight, SCROLL_LENGTH])
+      .domain([4 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
       .range([0, rentPath.node().getTotalLength()]);
 
-    inflScale = d3.scaleLinear()
-      .domain([4 * window.innerHeight, SCROLL_LENGTH])
+    inflScale
+      .domain([4 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
       .range([0, inflPath.node().getTotalLength()])
 
     rentPath
       .attr("d", line(data))
       .style("stroke-dasharray", function(d) {
-        console.log(d3.select(this));
         var l = d3.select(this).node().getTotalLength();
         return l + "px, " + l + "px";
       })
@@ -184,7 +184,6 @@ d3.csv("../data/data.csv", function(d) {
     inflPath
       .attr("d", infLine(data))
       .style("stroke-dasharray", function(d) {
-        console.log(d3.select(this));
         var l = d3.select(this).node().getTotalLength();
         return l + "px, " + l + "px";
       })
@@ -201,7 +200,7 @@ var render = function() {
   if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
     
-    if (scrollTop > 3.5 * window.innerHeight) {
+    if (scrollTop > 3.75 * window.innerHeight) {
         d3.select("#sticky")
           .style("display", "block");
     } else {

@@ -50,9 +50,7 @@
 
 {%block content%}
 
-  <div id="sticky">
-  </div>
-  <svg id="graph"> </svg>
+  <div id="sticky"></div>
   <div id="content">
     <div class="intro">    
       {{ ARCHIE.intro | markdown }}
@@ -186,21 +184,16 @@
       <h4> NOVEMBER </h4>
       <p class="details"> {{ ARCHIE.panel_2018 | safe }} </p>
     </div>
-    <!-- <div class="panel" id="year">
-      <p class="year"> <b> 2019 </b> </p>
-      <h4> MARCH </h4>
-      <p class="details"> Check out this year's <a href="http://www.dailycal.org/section/special/housing-survival-guide-2019/" target="_blank" style="color:#1960a8"> Housing Survival Guide</a>. </p>
-    </div> -->
 
 <!-- Nerd box -->
     <div class="panel" id="last">
       <div class="nerd-box">
         <h4>About this story</h4>
         <p> {{ ARCHIE.nerdbox | markdown }} </p>
-        <p> This project is open-source on <a href="https://github.com/dailycal-projects/berkeley-rent-timeline-gen" target="_blank" style="color:#1960a8">Github</a>. </p>
+        <p> This project is open-source on <a href="https://github.com/dailycal-projects/berkeley-rent-timeline-gen" target="_blank">Github</a>. </p>
         <br>
         <h4>Support us</h4>
-        <p>We're a nonprofit, student-run newsroom. Please consider <a href="https://donate.dailycal.org/" target="_blank" style="color:#1960a8">donating</a> to support our coverage.</p>
+        <p>We're a nonprofit, student-run newsroom. Please consider <a href="https://donate.dailycal.org/" target="_blank">donating</a> to support our coverage.</p>
       </div>
     </div>
 
