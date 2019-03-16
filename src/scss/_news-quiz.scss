@@ -9,7 +9,9 @@
 
 #sticky { 
   background-color: #fffff0;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s 0s, opacity 0.5s linear;
   position: fixed; 
   left: 50%;
   top: 47%;

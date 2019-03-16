@@ -39,6 +39,8 @@ var g = svg.append("g")
 var xScale = d3.scaleBand().rangeRound([0, WIDTH - 2 * margin.left]).paddingInner(0.1);
 var yScale = d3.scaleLinear().rangeRound([HEIGHT - 2 * margin.bottom, 0]);
 
+var slideSource = document.getElementById('slideSource');
+
 d3.csv("../data/data.csv", function(d) {
   return d;
 }, function(error, data) {
@@ -208,10 +210,16 @@ var render = function() {
     
     if (scrollTop > 3.5 * window.innerHeight) {
         d3.select("#sticky")
-          .style("display", "block");
+          // .style("display", "block");
+          .style("visibility", "visible")
+          .style("opacity", 1)
+          .style("transition", "opacity 0.5s linear");
     } else {
         d3.select("#sticky")
-          .style("display", "none");
+          // .style("display", "none");
+          .style("visibility", "hidden")
+          .style("opacity", 0)
+          .style("transition", "visibility 0.5s 0s, opacity 0.5s linear");
     }
 
     rentPath
