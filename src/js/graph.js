@@ -1,7 +1,9 @@
+const data = require('../data/data.json');
+
 var d3 = require('d3');
 var WIDTH, HEIGHT;
 
-function setGraphDimensions() {
+function setGraphDimensions() {   
   if (window.innerWidth < 400) {
     WIDTH = 300;
     HEIGHT = 500; 
@@ -39,11 +41,7 @@ var g = svg.append("g")
 var xScale = d3.scaleBand().rangeRound([0, WIDTH - 2 * margin.left]).paddingInner(0.1);
 var yScale = d3.scaleLinear().rangeRound([HEIGHT - 2 * margin.bottom, 0]);
 
-d3.csv("../data/data.csv", function(d) {
-  return d;
-}, function(error, data) {
-  if (error) throw error;
-
+function render() {
   var line = d3.line()
     .x(function(d) { return xScale(d.year); })
     .y(function(d) { return yScale(d.rent); })
@@ -196,41 +194,45 @@ d3.csv("../data/data.csv", function(d) {
       .style("stroke-dashoffset", function(d) {
         return d3.select(this).node().getTotalLength() - inflScale(scrollTop) + "px";
       });
-}
-
-/* Checks (~60/sec) if newScrollTop is different from scrollTop. If different, update graphics accordingly. */
-/* window.requestAnimationFrame() -- tells the browser that you wish to perform an animation and requests
-that the browser call a specified function to update an animation before the next repaint. 
-The method takes a callback as an argument to be invoked before the repaint. */
-var render = function() {
-  if (scrollTop !== newScrollTop) {
-    scrollTop = newScrollTop
-    
-    if (scrollTop > 3.5 * window.innerHeight) {
-        d3.select("#sticky")
-          .style("display", "block");
-    } else {
-        d3.select("#sticky")
-          .style("display", "none");
-    }
-
-    rentPath
-      .style("stroke-dashoffset", function(d) {
-        return (rentPath.node().getTotalLength() - rentScale(scrollTop) + "px");
-      });
-
-    inflPath
-      .style("stroke-dashoffset", function(d) {
-        return (inflPath.node().getTotalLength() - inflScale(scrollTop) + "px");
-      });
   }
 
-  /* Your callback routine must itself call requestAnimationFrame()
-  if you want to animate another frame at the next repaint. */
-  window.requestAnimationFrame(render)
+  /* Checks (~60/sec) if newScrollTop is different from scrollTop. If different, update graphics accordingly. */
+  /* window.requestAnimationFrame() -- tells the browser that you wish to perform an animation and requests
+  that the browser call a specified function to update an animation before the next repaint. 
+  The method takes a callback as an argument to be invoked before the repaint. */
+  var render = function() {
+    if (scrollTop !== newScrollTop) {
+      scrollTop = newScrollTop
+      
+      if (scrollTop > 3.5 * window.innerHeight) {
+          d3.select("#sticky")
+            .style("display", "block");
+      } else {
+          d3.select("#sticky")
+            .style("display", "none");
+      }
+
+      rentPath
+        .style("stroke-dashoffset", function(d) {
+          return (rentPath.node().getTotalLength() - rentScale(scrollTop) + "px");
+        });
+
+      inflPath
+        .style("stroke-dashoffset", function(d) {
+          return (inflPath.node().getTotalLength() - inflScale(scrollTop) + "px");
+        });
+    }
+
+    /* Your callback routine must itself call requestAnimationFrame()
+    if you want to animate another frame at the next repaint. */
+    window.requestAnimationFrame(render)
+  }
+
+  window.requestAnimationFrame(render);
+
+  window.onresize = setDimensions;
 }
 
-window.requestAnimationFrame(render)
+render();
 
-window.onresize = setDimensions
-});
+
