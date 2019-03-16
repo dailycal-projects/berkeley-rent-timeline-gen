@@ -115,12 +115,12 @@ d3.csv("../data/data.csv", function(d) {
       });
 
   var rentScale = d3.scaleLinear()
-    .domain([4 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
+    .domain([3.75 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
     .range([0, rentPath.node().getTotalLength()])
     .clamp(true); 
 
   var inflScale = d3.scaleLinear()
-    .domain([4 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
+    .domain([3.75 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
     .range([0, inflPath.node().getTotalLength()])
     .clamp(true);  
 
@@ -170,11 +170,11 @@ d3.csv("../data/data.csv", function(d) {
       });
 
     rentScale
-      .domain([4 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
+      .domain([3.75 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
       .range([0, rentPath.node().getTotalLength()]);
 
     inflScale
-      .domain([4 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
+      .domain([3.75 * window.innerHeight, SCROLL_LENGTH - window.innerHeight])
       .range([0, inflPath.node().getTotalLength()])
 
     rentPath
@@ -206,7 +206,7 @@ var render = function() {
   if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
     
-    if (scrollTop > 3.75 * window.innerHeight) {
+    if (scrollTop > 3.5 * window.innerHeight) {
         d3.select("#sticky")
           .style("display", "block");
     } else {
